@@ -45,6 +45,7 @@
 
 .login-design button:hover {
     background-color: grey;
+    transition: all .5s;
 }
 
 .login-design input {
