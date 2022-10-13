@@ -1,26 +1,38 @@
 <div class="background">
-
-    <div class="login-design">
-        <div class="img-container">
-            <img src="src/assets/1665603594229.jpg" alt="">
-        </div>
-
-        <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="login()">
-            <label> Sign In </label>
-            <div class="username">
-                <input type="text" placeholder="Correo Electronico" formControlName="email">
-            </div>
-            <div class="password">
-                <input type="password" placeholder="Contraseña" formControlName="password">
-            </div>
-
-            <div class="button1">
-                <button type="submit">Iniciar Sesión</button>
-            </div>
-
-            <span *ngIf="respuestaError" class="texto-advertencia">{{error | titlecase}}</span>
-
-        </form>
+  <div class="login-design">
+    <div class="img-container">
+      <img src="assets/logo.png" alt="Logo" />
     </div>
 
+    <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="login()">
+      <span class="titulo-formulario"><h1>Sign Up</h1></span>
+      <div class="username">
+        <input
+          type="text"
+          placeholder="Correo Electronico"
+          formControlName="email"
+        />
+      </div>
+      <div class="password">
+        <input
+          type="password"
+          placeholder="Contraseña"
+          formControlName="password"
+        />
+      </div>
+
+      <div class="button1">
+        <button type="submit">Login</button>
+      </div>
+
+      <div class="forgot-password">
+        <span>forgot </span>
+        <a class="link-password" href="">password?</a>
+      </div>
+
+      <span *ngIf="respuestaError" class="texto-advertencia">{{
+        error | titlecase
+      }}</span>
+    </form>
+  </div>
 </div>

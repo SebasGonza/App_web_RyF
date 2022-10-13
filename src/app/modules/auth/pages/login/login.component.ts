@@ -5,35 +5,30 @@ import { User } from 'src/app/core/models/usuariosDto';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
-export class LoginComponent{
-
+export class LoginComponent {
   user: User = {
     username: '',
     document: '',
     email: '',
     documentType: 0,
     password: '',
-    phoneNumber:''
-
+    phoneNumber: '',
   };
 
-  error:string = '';
-  respuestaError:Boolean = false;
+  error: string = '';
+  respuestaError: Boolean = false;
 
   miFormulario: FormGroup = this.fmbuilder.group({
-    email: ['', Validators.required],
-    password: ['', [Validators.required]]
+    email: [, Validators.required],
+    password: [, [Validators.required]],
   });
 
+  constructor(private fmbuilder: FormBuilder) {}
 
-
-  constructor(private fmbuilder: FormBuilder ) { }
-
-  login(){
+  login() {
     this.user.email = this.miFormulario.controls['correo'].value;
     this.user.email = this.miFormulario.controls['password'].value;
   }
-
 }
