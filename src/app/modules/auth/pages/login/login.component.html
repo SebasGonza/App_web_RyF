@@ -5,34 +5,30 @@
     </div>
 
     <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="login()">
-      <span class="titulo-formulario"><h1>Sign Up</h1></span>
+      <span class="titulo-formulario"><h1>Login</h1></span>
       <div class="username">
-        <input
-          type="text"
-          placeholder="Correo Electronico"
-          formControlName="email"
-        />
+        <input type="text" placeholder="Email" formControlName="email" />
       </div>
       <div class="password">
         <input
           type="password"
-          placeholder="Contraseña"
+          placeholder="Password"
           formControlName="password"
         />
       </div>
 
       <div class="button1">
-        <button type="submit">Login</button>
+        <button type="submit">Sign In</button>
       </div>
 
       <div class="forgot-password">
-        <span>forgot </span>
+        <span>Forgot </span>
         <a class="link-password" href="">password?</a>
       </div>
 
-      <span *ngIf="respuestaError" class="texto-advertencia">{{
-        error | titlecase
-      }}</span>
+      <div *ngIf="respuestaError" class="texto-advertencia">
+        {{ error | titlecase }}
+      </div>
     </form>
   </div>
 </div>

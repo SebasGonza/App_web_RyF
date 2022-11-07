@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { User } from 'src/app/core/models/usuariosDto';
+import { AuthService } from '../../../../core/services/auth.service';
+import { AuthResponse } from '../../../../core/models/authResponseDto';
+import { Auth } from 'src/app/core/models/authDto';
 
 @Component({
   selector: 'app-login',
@@ -8,27 +10,41 @@ import { User } from 'src/app/core/models/usuariosDto';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  user: User = {
-    username: '',
-    document: '',
+  auth: Auth = {
     email: '',
-    documentType: 0,
     password: '',
-    phoneNumber: '',
   };
 
-  error: string = '';
+  error?: string = '';
   respuestaError: Boolean = false;
+  token?: string = '';
 
   miFormulario: FormGroup = this.fmbuilder.group({
-    email: [, Validators.required],
-    password: [, [Validators.required]],
+    email: ['', [Validators.required, Validators.email]],
+    password: [, [Validators.required, Validators.minLength(4)]],
   });
 
-  constructor(private fmbuilder: FormBuilder) {}
+  constructor(
+    private fmbuilder: FormBuilder,
+    private authService: AuthService
+  ) {}
 
   login() {
-    this.user.email = this.miFormulario.controls['correo'].value;
-    this.user.email = this.miFormulario.controls['password'].value;
+    this.auth.email = this.miFormulario.controls['email'].value;
+    this.auth.password = this.miFormulario.controls['password'].value;
+
+    this.authService.login(this.auth).subscribe({
+      next: (data: AuthResponse) => {
+        this.respuestaError = false;
+        this.error = '';
+        this.token = data.token;
+        localStorage.setItem('token', this.token ?? '');
+        
+      },
+      error: () => {
+        this.error = 'Error en las credenciales';
+        this.respuestaError = true;
+      },
+    });
   }
 }
