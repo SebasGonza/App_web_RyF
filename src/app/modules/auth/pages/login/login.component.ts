@@ -1,5 +1,7 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+
 import { AuthService } from '../../../../core/services/auth.service';
 import { AuthResponse } from '../../../../core/models/authResponseDto';
 import { Auth } from 'src/app/core/models/authDto';
@@ -15,7 +17,7 @@ export class LoginComponent {
     password: '',
   };
 
-  error?: string = '';
+  error: string = '';
   respuestaError: Boolean = false;
   token?: string = '';
 
@@ -26,7 +28,8 @@ export class LoginComponent {
 
   constructor(
     private fmbuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   login() {
@@ -39,7 +42,7 @@ export class LoginComponent {
         this.error = '';
         this.token = data.token;
         localStorage.setItem('token', this.token ?? '');
-        
+        this.router.navigate(['/home']);
       },
       error: () => {
         this.error = 'Error en las credenciales';
