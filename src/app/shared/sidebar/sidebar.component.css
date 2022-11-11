@@ -39,7 +39,7 @@
 .btn-close {
   margin-left: auto;
   cursor: pointer;
-  width: 2rem;
+  width: 6rem;
   height: 2rem;
   border-radius: 50%;
   background-color: transparent;
@@ -66,7 +66,7 @@ img {
 /* Sidebar cuando está escondido */
 
 .sidebar-collapsed {
-  width: 16.5625rem;
+  width: 17.5625rem;
 }
 
 .sidebar-nav {

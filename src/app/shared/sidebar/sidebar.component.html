@@ -1,8 +1,8 @@
-<div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed' : ''">
+<div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed' : 'sidebar'">
   <div class="logo-container">
-    <button class="logo">R</button>
-    <div class="logo-text" *ngIf="collapsed">Regalos y Flores</div>
-    <button class="btn-close" *ngIf="collapsed">
+    <button class="logo" (click)="toggleCollapse()">R</button>
+    <div class="logo-text" *ngIf="collapsed"><p>Regalos y Flores</p></div>
+    <button class="btn-close" *ngIf="collapsed" (click)="closeSideBar()">
       <i class="fa-solid fa-x"></i>
     </button>
   </div>
