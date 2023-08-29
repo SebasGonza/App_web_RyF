@@ -1,6 +1,7 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { SideNavToggle } from 'src/app/core/models/sidebarToggle';
 import { navbarData } from '../../core/models/navbar-data';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,7 +9,9 @@ import { navbarData } from '../../core/models/navbar-data';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  constructor() {}
+  constructor(
+    private router: Router,
+  ) { }
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed: boolean = false;
@@ -29,5 +32,9 @@ export class SidebarComponent {
       collapsed: this.collapsed,
       screenWidth: this.screenWidth,
     });
+  }
+
+  dirigir(path:String): void {
+    this.router.navigate([path]);
   }
 }

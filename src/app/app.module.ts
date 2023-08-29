@@ -10,8 +10,9 @@ import { SharedModule } from './shared/shared.module';
 import { HomeModule } from './modules/home/home.module';
 import { DomicilioComponent } from './modules/domicilio/domicilio.component';
 import { InventarioComponent } from './modules/inventario/inventario.component';
-import { ProveedorComponent } from './modules/proveedor/proveedor.component';
+import { ProveedorComponent } from './modules/proveedores/proveedor/proveedor.component';
 import { FinanzasComponent } from './modules/finanzas/finanzas.component';
+import { UserModule } from './modules/usuarios/user.module';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { FinanzasComponent } from './modules/finanzas/finanzas.component';
   ],
   imports: [
     BrowserModule,
+    UserModule,
     AppRoutingModule,
     AuthModule,
     FormsModule,
