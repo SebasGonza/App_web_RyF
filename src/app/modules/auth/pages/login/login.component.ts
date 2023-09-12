@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
-import { FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
 
 import { AuthService } from '../../../../core/services/auth.service';
 import { AuthResponse } from '../../../../core/models/authResponseDto';
@@ -21,13 +21,13 @@ export class LoginComponent {
   respuestaError: Boolean = false;
   token?: string = '';
 
-  miFormulario: FormGroup = this.fmbuilder.group({
+  miFormulario: UntypedFormGroup = this.fmbuilder.group({
     email: ['', [Validators.required, Validators.email]],
     password: [, [Validators.required, Validators.minLength(4)]],
   });
 
   constructor(
-    private fmbuilder: FormBuilder,
+    private fmbuilder: UntypedFormBuilder,
     private authService: AuthService,
     private router: Router
   ) {}
