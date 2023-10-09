@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, ContentChild, ElementRef, Input, ViewChild } from '@angular/core';
 import { UntypedFormGroup, Validators, UntypedFormBuilder } from '@angular/forms';
 
 import { AuthService } from '../../../../core/services/auth.service';
@@ -20,6 +20,9 @@ export class LoginComponent {
   error: string = '';
   respuestaError: Boolean = false;
   token?: string = '';
+  showPassword: Boolean = true;
+
+  @ViewChild('inputPassword') inputPassword!: ElementRef<HTMLInputElement>;
 
   miFormulario: UntypedFormGroup = this.fmbuilder.group({
     email: ['', [Validators.required, Validators.email]],
@@ -30,7 +33,7 @@ export class LoginComponent {
     private fmbuilder: UntypedFormBuilder,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) { }
 
   login() {
     this.auth.email = this.miFormulario.controls['email'].value;
@@ -41,12 +44,18 @@ export class LoginComponent {
         this.respuestaError = false;
         this.token = data.token;
         localStorage.setItem('token', this.token ?? '');
-        this.router.navigate(['/home']);
+        this.router.navigate(['/home/dashboard']);
       },
       error: () => {
         this.error = 'Error en las credenciales';
         this.respuestaError = true;
       },
     });
+  }
+
+  toggleShowEye(): void {
+    console.log('holi');
+    this.showPassword = !this.showPassword;
+    this.inputPassword.nativeElement.type = this.showPassword ? 'text' : 'password';
   }
 }

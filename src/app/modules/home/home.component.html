@@ -2,8 +2,8 @@
   <div class="sidebar">
     <app-sidebar (onToggleSideNav)="onToggleSideNav($event)"></app-sidebar>
   </div>
-  <div class="contenido">
-    <app-body></app-body>
-  </div>
+
+  <app-body [collapsed]="isThisSideNavCollapsed" [screenWidth]="screenWidth"></app-body>
+
 
 </div>

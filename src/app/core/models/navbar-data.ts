@@ -1,31 +1,32 @@
 export const navbarData = [
+ 
   {
-    routerLink: '/home',
-    icon: 'fa-solid fa-house',
+    routerLink: 'dashboard',
+    icon: 'fa-solid fa-square-root-variable',
     label: 'Home'
   },
   {
-    routerLink: '/usuario',
+    routerLink: 'usuario',
     icon: 'fa-solid fa-user',
     label: 'Usuarios'
   },
   {
-    routerLink: '/inventario',
+    routerLink: 'inventario',
     icon: 'fa-solid fa-box',
     label: 'Inventario'
   },
   {
-    routerLink: '/domicilio',
+    routerLink: 'domicilio',
     icon: 'fa-solid fa-truck',
     label: 'Domicilio'
   },
   {
-    routerLink: '/proveedor',
+    routerLink: 'proveedor',
     icon: 'fa-solid fa-truck-ramp-box',
     label: 'Proveedor'
   },
   {
-    routerLink: '/finanzas',
+    routerLink: 'finanzas',
     icon: 'fa-solid fa-coins',
     label: 'Finanzas'
   },

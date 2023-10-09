@@ -11,8 +11,12 @@
       <div class="username">
         <input type="text" placeholder="Email" formControlName="email" />
       </div>
-      <div class="password">
-        <input type="password" placeholder="Password" formControlName="password" />
+      <div class="container-password">
+        <div class="password">
+          <input class="password-input" #inputPassword placeholder="Password" formControlName="password"
+            onpaste="return false" />
+          <i class="fa-regular fa-eye eye-password" (click)="toggleShowEye()"></i>
+        </div>
       </div>
 
       <div class="button1">

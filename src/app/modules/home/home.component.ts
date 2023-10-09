@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
 
   isThisSideNavCollapsed = false;
   screenWidth = 0;
+  
   onToggleSideNav(data: SideNavToggle): void{
     this.screenWidth = data.screenWidth,
     this.isThisSideNavCollapsed = data.collapsed
