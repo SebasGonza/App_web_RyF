@@ -13,6 +13,7 @@ import { InventarioComponent } from './modules/inventario/inventario.component';
 import { ProveedorComponent } from './modules/proveedores/proveedor/proveedor.component';
 import { FinanzasComponent } from './modules/finanzas/finanzas.component';
 import { UserModule } from './modules/usuarios/user.module';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { UserModule } from './modules/usuarios/user.module';
     InventarioComponent,
     ProveedorComponent,
     FinanzasComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
