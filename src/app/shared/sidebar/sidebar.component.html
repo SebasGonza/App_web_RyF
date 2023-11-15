@@ -1,19 +1,34 @@
 <div class="sidebar" [ngClass]="collapsed ? 'sidebar-collapsed' : 'sidebar'">
   <div class="logo-container">
     <button class="logo" (click)="toggleCollapse()">R</button>
-    <div class="logo-text" *ngIf="collapsed"><p>Regalos y Flores</p></div>
+    <div class="logo-text" *ngIf="collapsed">
+      <p>Regalos y Flores</p>
+    </div>
     <button class="btn-close" *ngIf="collapsed" (click)="closeSideBar()">
       <i class="fa-solid fa-x"></i>
     </button>
   </div>
-  <ul class="sidebar-nav">
-    <li class="sidebar-item" *ngFor="let data of navData">
-      <a class="sidebar-link" [routerLink]="[data.routerLink]">
-        <i class="sidebar-item-icon" [class]="data.icon"></i>
-        <span class="sidebar-link-text" *ngIf="collapsed">{{
-          data.label
-        }}</span>
+
+  <div class="navData">
+    <ul class="sidebar-nav">
+      <li class="sidebar-item" *ngFor="let data of navData">
+        <a class="sidebar-link" [routerLink]="[data.routerLink]" routerLinkActive="active">
+          <i class="sidebar-item-icon" [class]="data.icon"></i>
+          <span class="sidebar-link-text" *ngIf="collapsed">{{
+            data.label
+            }}</span>
+        </a>
+      </li>
+    </ul>
+
+  </div>
+
+  <div class="sidebar-item cerrar-sesion">
+    <div class="item">
+      <a class='sidebar-link' [routerLink]="[signOut.routerLink]" (click)="logOut()">
+        <i class="sidebar-item-icon" [class]="signOut.icon"></i>
+        <span class="sidebar-link-text" *ngIf="collapsed"> {{signOut.label}}</span>
       </a>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>

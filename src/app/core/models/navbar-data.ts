@@ -31,3 +31,9 @@ export const navbarData = [
     label: 'Finanzas'
   },
 ];
+
+export const signOut = {
+  routerLink: '',
+  icon: 'fa-solid fa-right-from-bracket',
+  label: 'Cerrar Sesion'
+};

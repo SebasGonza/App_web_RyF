@@ -4,16 +4,16 @@
       <img src="assets/logo.png" alt="Logo" />
     </div>
 
-    <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="login()">
+    <form class="form-container" autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="login()">
       <span class="titulo-formulario">
         <h1>Login</h1>
       </span>
       <div class="username">
-        <input type="text" placeholder="Email" formControlName="email" />
+        <input type="text" placeholder="Email" formControlName="email" class="beauty-input" />
       </div>
       <div class="container-password">
         <div class="password">
-          <input class="password-input" #inputPassword placeholder="Password" formControlName="password"
+          <input class="password-input beauty-input" #inputPassword placeholder="Password" formControlName="password" type="password"
             onpaste="return false" />
           <i class="fa-regular fa-eye eye-password" (click)="toggleShowEye()"></i>
         </div>

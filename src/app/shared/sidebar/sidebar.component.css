@@ -45,6 +45,7 @@
   background-color: transparent;
   border: none;
 }
+
 .fa-x {
   color: #fff;
   font-size: 24px;
@@ -84,6 +85,7 @@ img {
   width: 100%;
   margin-bottom: 0.625rem;
 }
+
 .sidebar-link {
   display: flex;
   align-items: center;
@@ -109,4 +111,17 @@ img {
 .sidebar-link:hover {
   background-color: #fff;
   color: #000;
+}
+
+.active{
+  background-color: #fff;
+  color: #000;
+}
+
+.cerrar-sesion {
+  margin-top: 42.5vh;
+  width: 100%;
+}
+.item{
+  padding: 0.938rem;
 }

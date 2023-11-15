@@ -20,7 +20,7 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
-  login(auth: Auth): Observable<AuthResponse> {
+  logIn(auth: Auth): Observable<AuthResponse> {
     const url = this.baseUrl + '/auth';
     return this.http.post<AuthResponse>(url, auth);
   }
@@ -28,5 +28,9 @@ export class AuthService {
   checkAuthetication(): Observable<boolean> | boolean {
     if (!localStorage.getItem('token')) return false;
     return of(true);
+  }
+
+  logOut(): void{
+    localStorage.clear();
   }
 }

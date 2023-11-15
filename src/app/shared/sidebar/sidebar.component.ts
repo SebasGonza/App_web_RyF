@@ -1,23 +1,31 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit } from '@angular/core';
 import { SideNavToggle } from 'src/app/core/models/sidebarToggle';
-import { navbarData } from '../../core/models/navbar-data';
+import { navbarData, signOut } from '../../core/models/navbar-data';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit {
   constructor(
     private router: Router,
+    private authService: AuthService,
   ) { }
 
+  
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed: boolean = false;
   screenWidth = 0;
   navData = navbarData;
-
+  signOut = signOut;
+  
+  ngOnInit(): void {
+    this.screenWidth = window.innerWidth;
+  }
+  
   closeSideBar(): void {
     this.collapsed = false;
     this.onToggleSideNav.emit({
@@ -34,7 +42,11 @@ export class SidebarComponent {
     });
   }
 
-  dirigir(path:String): void {
+  dirigir(path: String): void {
     this.router.navigate([path]);
+  }
+
+  logOut(): void {
+    this.authService.logOut();
   }
 }

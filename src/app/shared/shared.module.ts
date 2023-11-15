@@ -5,11 +5,11 @@ import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 
 import { BodyComponent } from './body/body.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [SidebarComponent, NotFoundComponent, BodyComponent],
-  exports: [SidebarComponent, NotFoundComponent, BodyComponent],
-
+  declarations: [SidebarComponent, NotFoundComponent, BodyComponent, CardComponent],
+  exports: [SidebarComponent, NotFoundComponent, BodyComponent, CardComponent],
   imports: [CommonModule, RouterModule],
 })
 export class SharedModule { }
